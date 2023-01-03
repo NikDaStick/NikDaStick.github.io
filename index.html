@@ -6,7 +6,7 @@
     <body>
         <h1>Pacman!</h1>
         <p>My name is Nik</p>
-        <canvas width = "120" height = "60"></canvas>
+        <canvas width = "500" height = "500"></canvas>
         <script>
             var levelData = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -24,7 +24,7 @@
             for (var i = 0; i < 10; i++) {
                 for (var j = 0; j < 10; j++) {
                     if (levelData[i][j] == 0) {
-                        context.fillrect(i * 20, j * 20, 20, 20);
+                        context.fillrect(i * 50, j * 50, 50, 50);
                     }
                 }
             }

@@ -9,8 +9,8 @@
                  [1, 1, 1, 0, 0, 0, 1, 1, 1, 1],
                  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]];*/
 function init() {
-    canvas = document.getElementById("gameCanvas");
-    ctx = canvas.getContext("2d");
+    var canvas = document.getElementById("gameCanvas");
+    var ctx = canvas.getContext("2d");
 
     ctx.beginPath();
     ctx.fillRect(125, 35, 50, 50);

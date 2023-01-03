@@ -9,9 +9,9 @@ var levelData = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                  [1, 1, 1, 0, 0, 0, 1, 1, 1, 1],
                  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
 function init() {
-    canvas = document.getElementById("gameCanvas")
-    ctx = canvas.getContext("2d")
-    drawLevel();
+    canvas = document.getElementById("gameCanvas");
+    ctx = canvas.getContext("2d");
+    level = new drawLevel();
 }
 
 function drawLevel() {

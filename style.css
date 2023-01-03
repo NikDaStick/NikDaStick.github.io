@@ -4,3 +4,10 @@ body {
     background: black;
     color: white;
 }
+canvas {
+    background: gray;
+    padding: 0;
+    margin: 0 auto;
+    margin-bottom: lrem;
+    display: block;
+}

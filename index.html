@@ -20,10 +20,16 @@
                              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]];
             let canvas = document.querySelector("canvas");
             let context = canvas.getContext("2d");
-            context.fillStyle = "black";
             for (var i = 0; i < 10; i++) {
                 for (var j = 0; j < 10; j++) {
-                    context.fillRect(i * 50, j * 50, 40, 40);
+                    if (levelData[i][j] == 0) {
+                        context.fillStyle = "black"
+                        context.fillRect(i * 50, j * 50, 50, 50);
+                    }
+                    else {
+                        context.fillStyle = "whtie"
+                        context.fillRect(i * 50, j * 50, 50, 50)
+                    }
                 }
             }
         </script>

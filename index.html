@@ -21,6 +21,7 @@
             let canvas = document.querySelector("canvas");
             let context = canvas.getContext("2d");
             context.fillStyle = "black";
+            context.fillRect(100, 100, 50, 50);
             for (var i = 0; i < 10; i++) {
                 for (var j = 0; j < 10; j++) {
                     if (levelData[i][j] == 0) {

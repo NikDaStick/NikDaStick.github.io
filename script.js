@@ -9,13 +9,11 @@
                  [1, 1, 1, 0, 0, 0, 1, 1, 1, 1],
                  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]];*/
 function draw() {
-    const canvas = document.getElementById("gameCanvas");
-    if (canvas.getContext) {
-        const ctx = canvas.getContext("2d");
+    let canvas = document.getElementById("gameCanvas");
+    let ctx = canvas.getContext("2d");
 
-        ctx.fillRect(25, 25, 100, 100);
-        ctx.clearRect(45, 45, 60, 60);
-        ctx.strokeRect(50, 50, 50, 50);
+    ctx.fillStyle = "red";
+    ctx.fillRect(10, 10, 100, 50);
 
     /*for (var i = 0; i < 10; i++) {
         for (var j = 0; j < 10; j++) {
@@ -26,5 +24,4 @@ function draw() {
             }
         }
     }*/
-    }
 }

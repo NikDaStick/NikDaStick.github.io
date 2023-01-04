@@ -26,7 +26,8 @@
             var canvasHeight = 450;
             
             var player;
-            var playerYPosition = 200;
+            var playerYPosition = 30;
+            var playerXPosition = 60;
 
             var fallSpeed = 10;
             var interval = setInterval(updateCanvas, 20);
@@ -43,8 +44,8 @@
 
             function startGame() {
                 gameCanvas.start();
-                player = new createPlayer(30, 30, 10);
-                block = new createBlock();
+                player = new createPlayer();
+                //block = new createBlock();
                 // Assign your scoreLabel variable a value from scoreLabel()
                 //scoreLabel = new createScoreLabel(10, 30);
             }
@@ -84,16 +85,18 @@
                 }
             }*/
 
-            function createPlayer(width, height, x) {
-                this.width = width;
-                this.height = height;
-                this.x = x;
-                this.y = playerYPosition;
+            function createPlayer() {
+                var radius = 15;
+                var x = playerXPosition;
+                var y = playerYPosition;
                 
                 this.draw = function() {
                     ctx = gameCanvas.context;
-                    ctx.fillStyle = "green";
-                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                    ctx.fillStyle = "yellow";
+                    context.beginPath();
+                    ctx.fillRect(x, y, radius, 0, Math.PI * 2, true);
+                    context.closePath();
+                    context.fill();
                 }
             }
                 /*this.makeFall = function() {

@@ -25,10 +25,17 @@
                              [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
                              [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]];
 
+            var interval = setInterval(updateCanvas, 20);
+            
+            var player;
+            var playerXPos = 60;
+            var playerYPos = 30;
+
             function startGame() {
                 var canvas = document.querySelector("canvas");
                 context = canvas.getContext("2d");
                 drawBg();
+                player = new createPlayer();
             }
             function drawBg() {
                 for (var i = 0; i < levelData.length; i++) {
@@ -36,7 +43,7 @@
                         if (levelData[i][j] == 0 && j != 0 && j != levelData[0].length - 1) {
                             context.fillStyle = "white";
                             context.beginPath();
-                            context.arc(j* 30 + 15, i * 30 + 15, 5, 0, Math.PI * 2, true);
+                            context.arc(j * 30 + 15, i * 30 + 15, 5, 0, Math.PI * 2, true);
                             context.closePath();
                             context.fill();
                         }
@@ -50,6 +57,31 @@
                         }
                     }
                 }
+            }
+
+            function createPlayer() {
+                width = 30;
+                height = 30;
+                x = playerXPos;
+                y = playerYPos;
+
+                draw = function() {
+                    context.fillStyle = "yellow";
+                    context.beginPath();
+                    context.arc(x, y, width, height, 0, Math.PI * 2, true);
+                    context.closePath();
+                    context.fill();
+                }
+
+                move = function() {
+
+                }
+            }
+
+            function updateCanvas() {
+                drawBg();
+                
+                player.draw();
             }
         </script>
     </body>

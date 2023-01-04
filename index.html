@@ -25,8 +25,7 @@
                              [0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0],
                              [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
                              [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]];
-                             
-            function drawBg() {
+
                 for (var i = 0; i < levelData.length; i++) {
                     for (var j = 0; j < levelData[0].length; j++) {
                         if (levelData[i][j] == 0 && j != 0 && j != levelData[0].length - 1) {
@@ -46,7 +45,6 @@
                         }
                     }
                 }
-            }
         </script>
     </body>
 </html>

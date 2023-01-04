@@ -95,7 +95,8 @@
                     ctx.fillStyle = "green";
                     ctx.fillRect(this.x, this.y, this.width, this.height);
                 }
-                this.makeFall = function() {
+            }
+                /*this.makeFall = function() {
                     if (!isJumping) {
                         this.y += fallSpeed;
                         this.stopPlayer();
@@ -142,7 +143,7 @@
                         score++;
                     }
                 }
-            }
+            }*/
 
             function detectCollision() {
                 var playerLeft = player.x
@@ -160,8 +161,8 @@
                     gameCanvas.stop();
                 }
             }
-
-            /*function createScoreLabel(x, y) {
+/*
+            function createScoreLabel(x, y) {
                 this.score = 0;  
                 this.x = x;
                 this.y = y;
@@ -179,19 +180,19 @@
                 ctx = gameCanvas.context;
                 ctx.clearRect(0, 0, canvasWidth, canvasHeight);
                 
-                player.makeFall();
+                //player.makeFall();
                 player.draw();
-                player.jump();
+               // player.jump();
                 
-                block.draw();
-                block.attackPlayer();
+                //block.draw();
+                //block.attackPlayer();
                 
                 // Redraw your score and update the value
                 //scoreLabel.text = "SCORE: " + score;
                 //scoreLabel.draw();
             }
 
-            function randomNumber(min, max) {
+            /*function randomNumber(min, max) {
                 return Math.floor(Math.random() * (max - min + 1) + min)
             }
 
@@ -205,7 +206,7 @@
                     isJumping = true;
                     setTimeout(function() { resetJump(); }, 1000);
                 }
-            }
+            }*/
         </script>
         <h1>Pacman!</h1>
         <p>My name is Nik</p>

@@ -32,7 +32,7 @@
             var interval = setInterval(updateCanvas, 20);
 
             var isJumping = false;
-            var jumpSpeed = 0;
+            var jumpSpeed = 10;
 
             var block;
 
@@ -110,7 +110,6 @@
                 this.jump = function() {
                     if (isJumping) {
                         this.y -= jumpSpeed;
-                        jumpSpeed += 0.3;
                     }
                 }
             }

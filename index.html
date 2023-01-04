@@ -226,7 +226,7 @@
             }*/
 
             document.body.onkeyup = function(e) {
-                if (e.kecode == 'w' || e.kecode != 'a' || e.kecode != 's' || e.kecode != 'd') {
+                if (e.keyCode == 'w' || e.keyCode != 'a' || e.keyCode != 's' || e.keyCode != 'd') {
                     for (var i = 0; i < WASD.length; i++) {
                         WASD[i] = false;
                     }

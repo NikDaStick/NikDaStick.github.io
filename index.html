@@ -113,6 +113,12 @@
                         this.y += speed;
                     else if (WASD[3])
                         this.x += speed;
+
+                    if (levelData[parseInt(toString(this.x/30.0))][parseInt(toString(this.y/30.0))] > 0) {
+                        for (var i = 0; i < WASD.length; i++) {
+                            WASD[i] = false;
+                        }
+                    }
                 }
             }
                 /*this.makeFall = function() {

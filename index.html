@@ -28,7 +28,7 @@
             var player;
             var playerYPosition = 200;
 
-            var fallSpeed = 0;
+            var fallSpeed = 10;
             var interval = setInterval(updateCanvas, 20);
 
             var isJumping = false;
@@ -98,7 +98,6 @@
                 this.makeFall = function() {
                     if (!isJumping) {
                         this.y += fallSpeed;
-                        fallSpeed += 0.1;
                         this.stopPlayer();
                     }
                 }

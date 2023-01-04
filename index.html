@@ -28,8 +28,8 @@
             var interval = setInterval(updateCanvas, 20);
             
             var player;
-            var playerXPos = 60;
-            var playerYPos = 30;
+            var playerXPos = 0;
+            var playerYPos = 0;
 
             function startGame() {
                 var canvas = document.querySelector("canvas");
@@ -60,15 +60,14 @@
             }
 
             function createPlayer() {
-                var width = 30;
-                var height = 30;
+                var radius = 15;
                 var x = playerXPos;
                 var y = playerYPos;
 
                 draw = function() {
                     context.fillStyle = "yellow";
                     context.beginPath();
-                    context.arc(x, y, width, height, 15, 0, Math.PI * 2, true);
+                    context.arc(x, y, radius, 0, Math.PI * 2, true);
                     context.closePath();
                     context.fill();
                 }

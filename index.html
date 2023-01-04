@@ -91,10 +91,10 @@
                 var y = playerYPosition;
                 
                 this.draw = function() {
-                    ctx = gameCanvas.context;
-                    ctx.fillStyle = "yellow";
+                    context = gameCanvas.context;
+                    context.fillStyle = "yellow";
                     context.beginPath();
-                    ctx.fillRect(30, 60, 15, 0, Math.PI * 2, true);
+                    context.fillRect(30, 60, 15, 0, Math.PI * 2, true);
                     context.closePath();
                     context.fill();
                 }

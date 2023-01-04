@@ -1,5 +1,3 @@
-let canvas = document.getElementById("gameCanvas");
-let context = canvas.getContext("2d");
 var levelData = [[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
                     [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0],
                     [0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0],
@@ -16,12 +14,11 @@ var levelData = [[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                     [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
                     [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]];
 
-function startGame() {
-    drawBg();
-    player = new createPlayer();
-}
+
 
 function drawBg() {
+    var canvas = document.getElementById("gameCanvas");
+    var context = canvas.getContext("2d");
     for (var i = 0; i < levelData.length; i++) {
         for (var j = 0; j < levelData[0].length; j++) {
             if (levelData[i][j] == 0 && j != 0 && j != levelData[0].length - 1) {
@@ -41,8 +38,4 @@ function drawBg() {
             }
         }
     }
-}
-
-function createPlayer() {
-
 }

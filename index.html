@@ -105,25 +105,18 @@
                 }
 
                 this.move = function() {
-                    if (levelData[parseInt(toString(this.x/30.0), 10)][parseInt(toString(this.y/30.0), 10)] > 0) {
-                        for (var i = 0; i < WASD.length; i++) {
-                            WASD[i] = false;
-                        }
+                    if (WASD[0]) {
+                        if (levelData[parseInt(toString(this.x/30.0 - 15), 10)][parseInt(toString(this.y/30.0 - 15), 10)] > 0)
+                            WASD[0] = false;
+                        else
+                            this.y -= speed;
                     }
-                    else {
-                        if (WASD[0]) {
-                            if (levelData[parseInt(toString(this.x/30.0 - 15), 10)][parseInt(toString(this.y/30.0 - 15), 10)] > 0)
-                                WASD[0] = false;
-                            else
-                                this.y -= speed;
-                        }
-                        else if (WASD[1])
-                            this.x -= speed;
-                        else if (WASD[2])
-                            this.y += speed;
-                        else if (WASD[3])
-                            this.x += speed;
-                    }
+                    else if (WASD[1])
+                        this.x -= speed;
+                    else if (WASD[2])
+                        this.y += speed;
+                    else if (WASD[3])
+                        this.x += speed;
                 }
             }
                 /*this.makeFall = function() {

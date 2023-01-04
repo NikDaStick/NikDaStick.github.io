@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
         <link rel = "stylesheet" href = "style.css"></link>
     </head>
     <body onload = "startGame()">
@@ -51,8 +52,8 @@
             function drawBg() {
                 for (var i = 0; i < levelData.length; i++) {
                     for (var j = 0; j < levelData[0].length; j++) {
-                        context = gameCanvas.context;
                         if (levelData[i][j] == 0 && j != 0 && j != levelData[0].length - 1) {
+                            context = gameCanvas.context;
                             context.fillStyle = "white";
                             context.beginPath();
                             context.arc(j * 30 + 15, i * 30 + 15, 5, 0, Math.PI * 2, true);
@@ -60,10 +61,12 @@
                             context.fill();
                         }
                         else if (levelData[i][j] == 1) {
+                            context = gameCanvas.context;
                             context.fillStyle = "#1919A6";
                             context.fillRect(j * 30, i * 30, 30, 30);
                         }
                         else if (levelData[i][j] == 2) {
+                            context = gameCanvas.context;
                             context.fillStyle = "#c60222";
                             context.fillRect(j * 30, i * 30, 30, 30);
                         }

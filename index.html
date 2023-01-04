@@ -226,19 +226,19 @@
             }*/
 
             document.body.onkeyup = function(e) {
-                if (e.keyCode == 'w' || e.keyCode != 'a' || e.keyCode != 's' || e.keyCode != 'd') {
+                if (e.keyCode == 119 || e.keyCode == 97 || e.keyCode == 115 || e.keyCode == 100) {
                     for (var i = 0; i < WASD.length; i++) {
                         WASD[i] = false;
                     }
                 }
 
-                if (e.keyCode == 'w') 
+                if (e.keyCode == 119) 
                     WASD[0] = true;
-                else if (e.keyCode == 'a')
+                else if (e.keyCode == 97)
                     WASD[1] = true;
-                else if (e.keyCode == 's')
+                else if (e.keyCode == 115)
                     WASD[2] = true;
-                else if (e.keyCode == 'd')
+                else if (e.keyCode == 100)
                     WASD[3] = true;
             }
         </script>

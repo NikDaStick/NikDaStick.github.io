@@ -26,8 +26,11 @@
             var canvasHeight = 450;
             
             var player;
-            var playerYPosition = 30;
-            var playerXPosition = 60;
+            var playerYPosition = 45;
+            var playerXPosition = 75;
+
+            var speed = 5;
+            var radius = 15;
 
             var fallSpeed = 10;
             var interval = setInterval(updateCanvas, 20);
@@ -41,6 +44,8 @@
             var score = 0;
             // Create a variable to hold our scoreLabel
             var scoreLabel;
+
+            var WASD = [false, false, false, false]
 
             function startGame() {
                 gameCanvas.start();
@@ -87,17 +92,27 @@
             }
 
             function createPlayer() {
-                var radius = 15;
                 var x = playerXPosition;
                 var y = playerYPosition;
                 
-                this.draw = function() {
+                draw = function() {
                     context = gameCanvas.context;
                     context.fillStyle = "yellow";
                     context.beginPath();
                     context.arc(x, y, radius, 0, Math.PI * 2, true);
                     context.closePath();
                     context.fill();
+                }
+
+                move = function() {
+                    if (WASD[0])
+                        playerYPosition -= speed;
+                    else if (WASD[1])
+                        playerXPosition -= speed;
+                    else if (WASD[2])
+                        playerYPosition += speed;
+                    else if (WASD[4])
+                        playerXPosition += speed;
                 }
             }
                 /*this.makeFall = function() {
@@ -207,14 +222,24 @@
             function resetJump() {
                 jumpSpeed = 10;
                 isJumping = false;
-            }
+            }*/
 
             document.body.onkeyup = function(e) {
-                if (e.keyCode == 32) {
-                    isJumping = true;
-                    setTimeout(function() { resetJump(); }, 1000);
+                if (e.kecode == 'w' || e.kecode != 'a' || e.kecode != 's' || e.kecode != 'd') {
+                    for (var i = 0; i < WASD.length; i++) {
+                        WASD[i] = false;
+                    }
                 }
-            }*/
+
+                if (e.keyCode == 'w') 
+                    WASD[0] = true;
+                else if (e.keyCode == 'a')
+                    WASD[1] = true;
+                else if (e.keyCode == 's')
+                    WASD[2] = true;
+                else if (e.keyCode == 'd')
+                    WASD[3] = true;
+            }
         </script>
         <h1>Pacman!</h1>
         <p>My name is Nik</p>

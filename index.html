@@ -95,8 +95,7 @@
                     ctx.fillStyle = "green";
                     ctx.fillRect(this.x, this.y, this.width, this.height);
                 }
-            }
-                /*this.makeFall = function() {
+                this.makeFall = function() {
                     if (!isJumping) {
                         this.y += fallSpeed;
                         this.stopPlayer();
@@ -115,7 +114,7 @@
                 }
             }
 
-            function createBlock() {
+            /*function createBlock() {
                 var width = randomNumber(10, 50);
                 var height = randomNumber(10, 200);
                 var speed = randomNumber(2, 6);
@@ -180,9 +179,9 @@
                 ctx = gameCanvas.context;
                 ctx.clearRect(0, 0, canvasWidth, canvasHeight);
                 
-                //player.makeFall();
+                player.makeFall();
                 player.draw();
-                //player.jump();
+                player.jump();
                 
                 //block.draw();
                 //block.attackPlayer();

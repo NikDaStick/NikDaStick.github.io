@@ -6,9 +6,7 @@
     <body onload = "startGame()">
         <h1>Pacman!</h1>
         <p>My name is Nik</p>
-        <canvas width = "690" height = "450"></canvas>
         <script>
-            var context;
             var levelData = [[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
                              [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0],
                              [0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0],
@@ -25,6 +23,9 @@
                              [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
                              [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]];
 
+            var canvasWidth = 690;
+            var canvasHeight = 450;
+            
             var interval = setInterval(updateCanvas, 20);
             
             var player;
@@ -32,14 +33,25 @@
             var playerYPos = 0;
 
             function startGame() {
-                var canvas = document.querySelector("canvas");
-                context = canvas.getContext("2d");
+                gameCanvas.start();
                 drawBg();
                 player = new createPlayer();
             }
+
+            var gameCanvas = {
+                canvas: document.createElement("canvas");
+                start: function() {
+                    canvas.width = canvasWidth;
+                    canvas.height = canvasHeight;
+                    context = canvas.getContext("2d");
+                    document.body.insertBefore(canvas, document.body.childNodes[0]);
+                }
+            }
+
             function drawBg() {
                 for (var i = 0; i < levelData.length; i++) {
                     for (var j = 0; j < levelData[0].length; j++) {
+                        context = gameCanvas.context;
                         if (levelData[i][j] == 0 && j != 0 && j != levelData[0].length - 1) {
                             context.fillStyle = "white";
                             context.beginPath();
@@ -65,6 +77,7 @@
                 var y = playerYPos;
 
                 draw = function() {
+                    context = gameCanvas.context;
                     context.fillStyle = "yellow";
                     context.fillRect(0, 0, 30, 30);
                     /*context.beginPath();

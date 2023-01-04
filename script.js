@@ -14,7 +14,7 @@ let levelData = [[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                              [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
                              [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]];
 function draw() {
-    let canvas = document.querySelector("canvas");
+    let canvas = document.querySelector("gameCanvas");
     let context = canvas.getContext("2d");
     for (var i = 0; i < levelData.length; i++) {
         for (var j = 0; j < levelData[0].length; j++) {

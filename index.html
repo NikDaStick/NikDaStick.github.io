@@ -6,11 +6,10 @@
     <body>
         <h1>Pacman!</h1>
         <p>My name is Nik</p>
-        <canvas id = "gameCanvas" width = "690" height = "450"></canvas>
-        <script src = "script.js"></script>
-        <!--<script>
-            let canvas = document.querySelector("canvas");
-            let context = canvas.getContext("2d");
+        <canvas width = "690" height = "450"></canvas>
+        <script>
+            var canvas = document.querySelector("canvas");
+            var context = canvas.getContext("2d");
             var levelData = [[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
                              [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0],
                              [0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0],
@@ -26,12 +25,7 @@
                              [0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0],
                              [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
                              [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]];
-
-            function startGame() {
-                drawBg();
-                player = new createPlayer();
-            }
-
+                             
             function drawBg() {
                 for (var i = 0; i < levelData.length; i++) {
                     for (var j = 0; j < levelData[0].length; j++) {
@@ -53,10 +47,6 @@
                     }
                 }
             }
-
-            function createPlayer() {
-
-            }
-        </script>-->
+        </script>
     </body>
 </html>

@@ -93,7 +93,10 @@
             }
 
             function updateCanvas() {
-                drawBg();
+                context = gameCanvas.context;
+                context.clearRect(0, 0, canvasWidth, canvasHeight);
+
+                //drawBg();
                 
                 player.draw();
             }

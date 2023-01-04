@@ -227,19 +227,19 @@
 
             document.body.onkeydown = function(e) {
                 console.log(e.keyCode);
-                if (e.keyCode == 'W' || e.keyCode == 'A' || e.keyCode == 'S' || e.keyCode == 'D') {
+                if (e.keyCode == 87 || e.keyCode == 65 || e.keyCode == 83 || e.keyCode == 68) {
                     for (var i = 0; i < WASD.length; i++) {
                         WASD[i] = false;
                     }
                 }
 
-                if (e.keyCode == 'W') 
+                if (e.keyCode == 87) 
                     WASD[0] = true;
-                else if (e.keyCode == 'A')
+                else if (e.keyCode == 65)
                     WASD[1] = true;
-                else if (e.keyCode == 'S')
+                else if (e.keyCode == 83)
                     WASD[2] = true;
-                else if (e.keyCode == 'D')
+                else if (e.keyCode == 68)
                     WASD[3] = true;
             }
         </script>

@@ -92,8 +92,8 @@
             }
 
             function createPlayer() {
-                var x = playerXPosition;
-                var y = playerYPosition;
+                this.x = playerXPosition;
+                this.y = playerYPosition;
                 
                 this.draw = function() {
                     context = gameCanvas.context;
@@ -106,13 +106,13 @@
 
                 this.move = function() {
                     if (WASD[0])
-                        playerYPosition -= speed;
+                        this.y -= speed;
                     else if (WASD[1])
-                        playerXPosition -= speed;
+                        this.x -= speed;
                     else if (WASD[2])
-                        playerYPosition += speed;
+                        this.y += speed;
                     else if (WASD[4])
-                        playerXPosition += speed;
+                        this.x += speed;
                 }
             }
                 /*this.makeFall = function() {

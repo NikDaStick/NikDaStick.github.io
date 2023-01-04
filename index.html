@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name = "viewport" content = "width=device-width, initial-scale = 1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel = "stylesheet" href = "style.css"></link>
     </head>
     <body onload = "startGame()">
@@ -40,10 +40,10 @@
             var gameCanvas = {
                 canvas: document.createElement("canvas"),
                 start: function() {
-                    canvas.width = canvasWidth;
-                    canvas.height = canvasHeight;
-                    context = canvas.getContext("2d");
-                    document.body.insertBefore(canvas, document.body.childNodes[0]);
+                    this.canvas.width = canvasWidth;
+                    this.canvas.height = canvasHeight;
+                    this.context = this.canvas.getContext("2d");
+                    document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 }
             }
 

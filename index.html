@@ -44,6 +44,7 @@
 
             function startGame() {
                 gameCanvas.start();
+                drawBg();
                 player = new createPlayer();
                 //block = new createBlock();
                 // Assign your scoreLabel variable a value from scoreLabel()
@@ -60,7 +61,7 @@
                 }
             }
 
-            /*function drawBg() {
+            function drawBg() {
                 for (var i = 0; i < levelData.length; i++) {
                     for (var j = 0; j < levelData[0].length; j++) {
                         if (levelData[i][j] == 0 && j != 0 && j != levelData[0].length - 1) {
@@ -83,7 +84,7 @@
                         }
                     }
                 }
-            }*/
+            }
 
             function createPlayer() {
                 var radius = 15;
@@ -94,7 +95,7 @@
                     context = gameCanvas.context;
                     context.fillStyle = "yellow";
                     context.beginPath();
-                    context.arc(30, 60, 15, 0, Math.PI * 2, true);
+                    context.arc(x, y, radius, 0, Math.PI * 2, true);
                     context.closePath();
                     context.fill();
                 }
@@ -184,6 +185,8 @@
                 
                 ctx = gameCanvas.context;
                 ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+                drawBg();
                 
                 //player.makeFall();
                 player.draw();

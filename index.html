@@ -18,6 +18,7 @@
                              [0, 0, 0, 1, 1, 2, 0, 0, 2, 0, 0, 2, 0, 0, 2, 2, 2, 0, 1, 1, 0, 0, 0],
                              [1, 1, 0, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0, 2, 0, 0, 1, 0, 1, 1],
                              [0, 1, 0, 1, 0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0, 1, 0, 1, 0],
+                             [0, 1, 0, 1, 0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0, 0, 2, 0, 1, 0, 1, 0],
                              [0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0, 0, 0, 0, 1, 0],
                              [0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0],
                              [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
@@ -27,15 +28,15 @@
             for (var i = 0; i < levelData.length; i++) {
                 for (var j = 0; j < levelData[0].length; j++) {
                     if (levelData[i][j] == 0) {
-                        context.fillStyle = "black";
+                        context.fillStyle = "";
                         context.fillRect(j * 30, i * 30, 30, 30);
                     }
                     else if (levelData[i][j] == 1) {
-                        context.fillStyle = "blue";
+                        context.fillStyle = "#1919A6";
                         context.fillRect(j * 30, i * 30, 30, 30);
                     }
                     else if (levelData[i][j] == 2) {
-                        context.fillStyle = "red";
+                        context.fillStyle = "#c60222";
                         context.fillRect(j * 30, i * 30, 30, 30);
                     }
                 }

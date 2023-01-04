@@ -45,7 +45,7 @@
             // Create a variable to hold our scoreLabel
             var scoreLabel;
 
-            var WASD = [true, false, false, false]
+            var WASD = [false, false, false, false]
 
             function startGame() {
                 gameCanvas.start();
@@ -225,7 +225,8 @@
                 isJumping = false;
             }*/
 
-            document.body.onkeyup = function(e) {
+            document.body.onkeydown = function(e) {
+                console.log(e.keyCode);
                 if (e.keyCode == 119 || e.keyCode == 97 || e.keyCode == 115 || e.keyCode == 100) {
                     for (var i = 0; i < WASD.length; i++) {
                         WASD[i] = false;

@@ -27,12 +27,10 @@
             let context = canvas.getContext("2d");
             for (var i = 0; i < levelData.length; i++) {
                 for (var j = 0; j < levelData[0].length; j++) {
-                    if (levelData[i][j] == 0) {
-                        //context.fillStyle = "black";
-                        //context.fillRect(j * 30, i * 30, 30, 30);
+                    if (levelData[i][j] == 0 && (j != 0 || j != levelData[0].length - 1)) {
                         context.fillStyle = "white";
                         context.beginPath();
-                        context.arc(j* 30 + 20, i * 30 + 20, 5, 0, Math.PI * 2, true);
+                        context.arc(j* 30 + 15, i * 30 + 15, 5, 0, Math.PI * 2, true);
                         context.closePath();
                         context.fill();
                     }

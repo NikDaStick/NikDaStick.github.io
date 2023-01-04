@@ -95,7 +95,7 @@
                 var x = playerXPosition;
                 var y = playerYPosition;
                 
-                draw = function() {
+                this.draw = function() {
                     context = gameCanvas.context;
                     context.fillStyle = "yellow";
                     context.beginPath();
@@ -104,7 +104,7 @@
                     context.fill();
                 }
 
-                move = function() {
+                this.move = function() {
                     if (WASD[0])
                         playerYPosition -= speed;
                     else if (WASD[1])
@@ -205,6 +205,7 @@
                 
                 //player.makeFall();
                 player.draw();
+                player.move();
                // player.jump();
                 
                 //block.draw();

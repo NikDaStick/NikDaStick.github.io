@@ -29,11 +29,11 @@
             
             var player;
             var playerXPos = 0;
-            var playerYPos = 0;
+            var playerYPos = 200;
 
             function startGame() {
                 gameCanvas.start();
-                player = new createPlayer();
+                player = new createPlayer(30, 30, 10);
             }
 
             var gameCanvas = {
@@ -71,15 +71,16 @@
                 }
             }
 
-            function createPlayer() {
-                var radius = 15;
-                var x = playerXPos;
-                var y = playerYPos;
+            function createPlayer(width, height, x) {
+                this.width = width;
+                this.height = height;
+                this.x = x;
+                this.y = playerYPos;
 
                 draw = function() {
                     context = gameCanvas.context;
                     context.fillStyle = "yellow";
-                    context.fillRect(0, 0, 30, 30);
+                    context.fillRect(this.x, this.y, this.width, this.height);
                     /*context.beginPath();
                     context.arc(x, y, radius, 0, Math.PI * 2, true);
                     context.closePath();

@@ -25,15 +25,28 @@
             var canvasWidth = 690;
             var canvasHeight = 450;
             
-            var interval = setInterval(updateCanvas, 20);
-            
             var player;
-            var playerXPos = 0;
-            var playerYPos = 200;
+            var playerYPosition = 200;
+
+            var fallSpeed = 0;
+            var interval = setInterval(updateCanvas, 20);
+
+            var isJumping = false;
+            var jumpSpeed = 0;
+
+            var block;
+
+            // Create a score of 0 to start with
+            var score = 0;
+            // Create a variable to hold our scoreLabel
+            var scoreLabel;
 
             function startGame() {
                 gameCanvas.start();
                 player = new createPlayer(30, 30, 10);
+                block = new createBlock();
+                // Assign your scoreLabel variable a value from scoreLabel()
+                scoreLabel = new createScoreLabel(10, 30);
             }
 
             var gameCanvas = {
@@ -46,7 +59,7 @@
                 }
             }
 
-            function drawBg() {
+            /*function drawBg() {
                 for (var i = 0; i < levelData.length; i++) {
                     for (var j = 0; j < levelData[0].length; j++) {
                         if (levelData[i][j] == 0 && j != 0 && j != levelData[0].length - 1) {
@@ -69,32 +82,131 @@
                         }
                     }
                 }
-            }
+            }*/
 
             function createPlayer(width, height, x) {
                 this.width = width;
                 this.height = height;
                 this.x = x;
-                this.y = playerYPos;
+                this.y = playerYPosition;
+                
+                this.draw = function() {
+                    ctx = gameCanvas.context;
+                    ctx.fillStyle = "green";
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                }
+                this.makeFall = function() {
+                    if (!isJumping) {
+                        this.y += fallSpeed;
+                        fallSpeed += 0.1;
+                        this.stopPlayer();
+                    }
+                }
+                this.stopPlayer = function() {
+                    var ground = canvasHeight - this.height;
+                    if (this.y > ground) {
+                        this.y = ground;
+                    }
+                }
+                this.jump = function() {
+                    if (isJumping) {
+                        this.y -= jumpSpeed;
+                        jumpSpeed += 0.3;
+                    }
+                }
+            }
 
-                draw = function() {
-                    context = gameCanvas.context;
-                    context.fillStyle = "yellow";
-                    context.fillRect(this.x, this.y, this.width, this.height);
-                    /*context.beginPath();
-                    context.arc(x, y, radius, 0, Math.PI * 2, true);
-                    context.closePath();
-                    context.fill();*/
+            function createBlock() {
+                var width = randomNumber(10, 50);
+                var height = randomNumber(10, 200);
+                var speed = randomNumber(2, 6);
+                
+                this.x = canvasWidth;
+                this.y = canvasHeight - height;
+                
+                this.draw = function() {
+                    ctx = gameCanvas.context;
+                    ctx.fillStyle = "red";
+                    ctx.fillRect(this.x, this.y, width, height);
+                }
+                this.attackPlayer = function() {
+                    this.x -= speed;
+                    this.returnToAttackPosition();
+                }
+                this.returnToAttackPosition = function() {
+                    if (this.x < 0) {
+                        width = randomNumber(10, 50);
+                        height = randomNumber(50, 200);
+                        speed = randomNumber(4, 6);
+                        this.y = canvasHeight - height;
+                        this.x = canvasWidth;
+                        // Increase your score if your block made it to the edge
+                        score++;
+                    }
+                }
+            }
+
+            function detectCollision() {
+                var playerLeft = player.x
+                var playerRight = player.x + player.width;
+                var blockLeft = block.x;
+                var blockRight = block.x + block.width;
+                
+                var playerBottom = player.y + player.height;
+                var blockTop = block.y;
+                
+                if (playerRight > blockLeft && 
+                    playerLeft < blockLeft && 
+                    playerBottom > blockTop) {
+                    
+                    gameCanvas.stop();
+                }
+            }
+
+            function createScoreLabel(x, y) {
+                this.score = 0;  
+                this.x = x;
+                this.y = y;
+                this.draw = function() {
+                    ctx = gameCanvas.context;
+                    ctx.font = "25px Marker Felt";
+                    ctx.fillStyle = "black";
+                    ctx.fillText(this.text, this.x, this.y);
                 }
             }
 
             function updateCanvas() {
-                context = gameCanvas.context;
-                context.clearRect(0, 0, canvasWidth, canvasHeight);
-
-                //drawBg();
+                detectCollision();
                 
+                ctx = gameCanvas.context;
+                ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+                
+                player.makeFall();
                 player.draw();
+                player.jump();
+                
+                block.draw();
+                block.attackPlayer();
+                
+                // Redraw your score and update the value
+                scoreLabel.text = "SCORE: " + score;
+                scoreLabel.draw();
+            }
+
+            function randomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min)
+            }
+
+            function resetJump() {
+                jumpSpeed = 0;
+                isJumping = false;
+            }
+
+            document.body.onkeyup = function(e) {
+                if (e.keyCode == 32) {
+                    isJumping = true;
+                    setTimeout(function() { resetJump(); }, 1000);
+                }
             }
         </script>
         <h1>Pacman!</h1>

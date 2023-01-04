@@ -111,8 +111,12 @@
                         }
                     }
                     else {
-                        if (WASD[0])
-                            this.y -= speed;
+                        if (WASD[0]) {
+                            if (levelData[parseInt(toString(this.x/30.0 - 15), 10)][parseInt(toString(this.y/30.0 - 15), 10)] > 0)
+                                WASD[0] = false;
+                            else
+                                this.y -= speed;
+                        }
                         else if (WASD[1])
                             this.x -= speed;
                         else if (WASD[2])

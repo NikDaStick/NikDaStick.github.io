@@ -57,7 +57,7 @@
                 player = new createPlayer();
                 //block = new createBlock();
                 // Assign your scoreLabel variable a value from scoreLabel()
-                //scoreLabel = new createScoreLabel(10, 30);
+                scoreLabel = new createScoreLabel(10, 30);
             }
 
             var gameCanvas = {
@@ -202,11 +202,11 @@
                     gameCanvas.stop();
                 }*/
             }
-/*
+
             function createScoreLabel(x, y) {
                 this.score = 0;  
-                this.x = x;
-                this.y = y;
+                this.x = 0;
+                this.y = 0;
                 this.draw = function() {
                     ctx = gameCanvas.context;
                     ctx.font = "25px Marker Felt";
@@ -214,7 +214,7 @@
                     ctx.fillText(this.text, this.x, this.y);
                 }
             }
-*/
+
             function updateCanvas() {
                 detectCollision();
                 
@@ -234,6 +234,7 @@
 
                 if (levelData[Math.floor(player.y/30)][Math.floor((player.x - 15 + speed)/30)] == 0)
                     levelData[Math.floor(player.y/30)][Math.floor((player.x - 15 + speed)/30)] = -1;
+                    score += 10;
                 
                 if (indexBoolean) {
                     if (player.x % 15 == 0 && player.x % 30 != 0 && player.y % 15 == 0 && player.y % 30 != 0) {
@@ -269,8 +270,8 @@
                 //block.attackPlayer();
                 
                 // Redraw your score and update the value
-                //scoreLabel.text = "SCORE: " + score;
-                //scoreLabel.draw();
+                scoreLabel.text = "SCORE: " + score;
+                scoreLabel.draw();
             }
 
             /*function randomNumber(min, max) {

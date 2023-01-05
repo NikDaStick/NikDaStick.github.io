@@ -289,7 +289,7 @@
                         else if (e.keyCode == 68)
                             WASD[3] = true;
                     }
-                    else {
+                    else if (player.x % 30 != 0 && player.y % 30 != 0) {
                         indexBoolean = true;
                         storeKeyCode = e.keyCode;
                     }

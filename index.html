@@ -228,32 +228,30 @@
                 player.move();
 
                 if (indexBoolean) {
-                    index += speed;
-
                     if (player.x % 15 == 0 && player.x % 30 != 0 && player.y % 15 == 0 && player.y % 30 != 0) {
                         if (storeKeyCode == 87 && levelData[Math.floor((player.y - 15 - speed)/30)][Math.floor((player.x - 15)/30)] == 0) {
                             clearWASD();
                             WASD[0] = true;
+                            indexBoolean = false;
+                            storeKeyCode = 0;
                         }
                         else if (storeKeyCode == 65 && levelData[Math.floor((player.y - 15)/30)][Math.floor((player.x - 15 - speed)/30)] == 0) {
                             clearWASD();
                             WASD[1] = true;
+                            indexBoolean = false;
+                            storeKeyCode = 0;
                         }
                         else if (storeKeyCode == 83 && levelData[Math.floor((player.y + 15)/30)][Math.floor((player.x - 15)/30)] == 0) {
                             clearWASD();
                             WASD[2] = true;
+                            indexBoolean = false;
+                            storeKeyCode = 0;
                         }
                         else if (storeKeyCode == 68 && levelData[Math.floor((player.y - 15)/30)][Math.floor((player.x + 15)/30)] == 0) {
                             clearWASD();
                             WASD[3] = true;
-                        }
-
-                        for (var i = 0; i < WASD.length; i++) {
-                            if (WASD[i]) {
-                                index = 0;
-                                indexBoolean = false;
-                                storeKeyCode = 0;
-                            }
+                            indexBoolean = false;
+                            storeKeyCode = 0;
                         }   
                     }
                 }

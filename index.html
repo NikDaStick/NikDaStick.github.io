@@ -113,19 +113,19 @@
                     }
                     else if (WASD[1]) {
                         if (levelData[Math.floor((this.y - 15)/30)][Math.floor((this.x - 15 - speed)/30)] > 0)
-                            WASD[0] = false;
+                            WASD[1] = false;
                         else 
                             this.x -= speed;
                     }
                     else if (WASD[2]) {
                         if (levelData[Math.floor((this.y + 15)/30)][Math.floor((this.x - 15)/30)] > 0)
-                            WASD[0] = false;
+                            WASD[2] = false;
                         else
                             this.y += speed;
                     }
                     else if (WASD[3]) {
                         if (levelData[Math.floor((this.y - 15)/30)][Math.floor((this.x + 15)/30)] > 0)
-                            WASD[0] = false;
+                            WASD[3] = false;
                         else
                             this.x += speed;
                     }
@@ -243,7 +243,7 @@
 
             document.body.onkeydown = function(e) {
                 console.log(e.keyCode);
-                if ((e.keyCode == 87 || e.keyCode == 65 || e.keyCode == 83 || e.keyCode == 68) && player.x % 15 == 0 && player.y % 15 == 0) {
+                if ((e.keyCode == 87 || e.keyCode == 65 || e.keyCode == 83 || e.keyCode == 68) && (player.x - 15 % 30) == 0 && (player.y - 15) % 30 == 0) {
                     for (var i = 0; i < WASD.length; i++) {
                         WASD[i] = false;
                     }

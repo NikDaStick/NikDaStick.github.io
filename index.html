@@ -106,6 +106,8 @@
 
                 this.move = function() {
                     if (WASD[0]) {
+                        console.log(parseInt(toString(this.x/30.0 - 15), 10));
+                        console.log(parseInt(toString(this.y/30.0 - 15), 10));
                         if (levelData[parseInt(toString(this.x/30.0 - 15), 10)][parseInt(toString(this.y/30.0 - 15), 10)] > 0)
                             WASD[0] = false;
                         else

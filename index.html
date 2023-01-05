@@ -284,6 +284,7 @@
                             WASD[i] = false;
                         }
 
+                        console.log(levelData[Math.floor((this.y - 15 - speed)/30)][Math.floor((this.x - 15)/30)]);
                         if (e.keyCode == 87 && levelData[Math.floor((this.y - 15 - speed)/30)][Math.floor((this.x - 15)/30)] < 1) 
                             WASD[0] = true;
                         else if (e.keyCode == 65 && levelData[Math.floor((this.y - 15)/30)][Math.floor((this.x - 15 - speed)/30)] < 1)

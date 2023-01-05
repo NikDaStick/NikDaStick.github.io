@@ -112,19 +112,19 @@
                             this.y -= speed;
                     }
                     else if (WASD[1]) {
-                        if (levelData[Math.floor((this.y - 15 - speed)/30)][Math.floor((this.x - 15 - speed)/30)] > 0)
+                        if (levelData[Math.floor((this.y - 15 - speed)/30)][Math.floor((this.x - 45 - speed)/30)] > 0)
                             WASD[0] = false;
                         else 
                             this.x -= speed;
                     }
                     else if (WASD[2]) {
-                        if (levelData[Math.floor((this.y + 15 + speed)/30)][Math.floor((this.x - 15 - speed)/30)] > 0)
+                        if (levelData[Math.floor((this.y + 45 + speed)/30)][Math.floor((this.x - 15 - speed)/30)] > 0)
                             WASD[0] = false;
                         else
                             this.y += speed;
                     }
                     else if (WASD[3]) {
-                        if (levelData[Math.floor((this.y - 15 - speed)/30)][Math.floor((this.x + 15 + speed)/30)] > 0)
+                        if (levelData[Math.floor((this.y - 15 - speed)/30)][Math.floor((this.x + 45 + speed)/30)] > 0)
                             WASD[0] = false;
                         else
                             this.x += speed;

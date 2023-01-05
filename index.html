@@ -228,9 +228,7 @@
                 player.move();
 
                 if (indexBoolean) {
-                    console.log(storeKeyCode);
-                    console.log(index);
-                    index += jump;
+                    index += speed;
 
                     if (index == 30) {
                         for (var i = 0; i < WASD.length; i++) {

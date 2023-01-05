@@ -106,9 +106,9 @@
 
                 this.move = function() {
                     if (WASD[0]) {
-                        console.log((this.x - 15)/30);
-                        console.log((this.y - 15)/30);
-                        if (levelData[(this.x - 15)/30][(this.y - 15)/30] > 0)
+                        console.log(Math.floor((this.x - 15)/30));
+                        console.log(Math.floor((this.y - 15)/30));
+                        if (levelData[Math.floor((this.x - 15)/30)][Math.floor((this.y - 15)/30)] > 0)
                             WASD[0] = false;
                         else
                             this.y -= speed;

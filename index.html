@@ -231,18 +231,22 @@
                     index += speed;
 
                     if (player.x % 15 == 0 && player.x % 30 != 0 && player.y % 15 == 0 && player.y % 30 != 0) {
-                        for (var i = 0; i < WASD.length; i++) {
-                            WASD[i] = false;
-                        }
-
-                        if (storeKeyCode == 87 && levelData[Math.floor((player.y - 15 - speed)/30)][Math.floor((player.x - 15)/30)] == 0) 
+                        if (storeKeyCode == 87 && levelData[Math.floor((player.y - 15 - speed)/30)][Math.floor((player.x - 15)/30)] == 0) {
+                            clearWASD();
                             WASD[0] = true;
-                        else if (storeKeyCode == 65 && levelData[Math.floor((player.y - 15)/30)][Math.floor((player.x - 15 - speed)/30)] == 0)
+                        }
+                        else if (storeKeyCode == 65 && levelData[Math.floor((player.y - 15)/30)][Math.floor((player.x - 15 - speed)/30)] == 0) {
+                            clearWASD();
                             WASD[1] = true;
-                        else if (storeKeyCode == 83 && levelData[Math.floor((player.y + 15)/30)][Math.floor((player.x - 15)/30)] == 0)
+                        }
+                        else if (storeKeyCode == 83 && levelData[Math.floor((player.y + 15)/30)][Math.floor((player.x - 15)/30)] == 0) {
+                            clearWASD();
                             WASD[2] = true;
-                        else if (storeKeyCode == 68 && levelData[Math.floor((player.y - 15)/30)][Math.floor((player.x + 15)/30)] == 0)
+                        }
+                        else if (storeKeyCode == 68 && levelData[Math.floor((player.y - 15)/30)][Math.floor((player.x + 15)/30)] == 0) {
+                            clearWASD();
                             WASD[3] = true;
+                        }
 
                         for (var i = 0; i < WASD.length; i++) {
                             if (WASD[i]) {
@@ -280,23 +284,33 @@
 
                 if ((e.keyCode == 87 || e.keyCode == 65 || e.keyCode == 83 || e.keyCode == 68)) {
                     if (player.x % 15 == 0 && player.x % 30 != 0 && player.y % 15 == 0 && player.y % 30 != 0) {
-                        for (var i = 0; i < WASD.length; i++) {
-                            WASD[i] = false;
-                        }
-
-                        if (e.keyCode == 87 && levelData[Math.floor((player.y - 15 - speed)/30)][Math.floor((player.x - 15)/30)] == 0) 
+                        if (e.keyCode == 87 && levelData[Math.floor((player.y - 15 - speed)/30)][Math.floor((player.x - 15)/30)] == 0) {
+                            clearWASD();
                             WASD[0] = true;
-                        else if (e.keyCode == 65 && levelData[Math.floor((player.y - 15)/30)][Math.floor((player.x - 15 - speed)/30)] ==  0)
+                        }
+                        else if (e.keyCode == 65 && levelData[Math.floor((player.y - 15)/30)][Math.floor((player.x - 15 - speed)/30)] ==  0) {
+                            clearWASD();
                             WASD[1] = true;
-                        else if (e.keyCode == 83 && levelData[Math.floor((player.y + 15)/30)][Math.floor((player.x - 15)/30)] == 0)
+                        }
+                        else if (e.keyCode == 83 && levelData[Math.floor((player.y + 15)/30)][Math.floor((player.x - 15)/30)] == 0) {
+                            clearWASD();
                             WASD[2] = true;
-                        else if (e.keyCode == 68 && levelData[Math.floor((player.y - 15)/30)][Math.floor((player.x + 15)/30)] == 0)
+                        }
+                        else if (e.keyCode == 68 && levelData[Math.floor((player.y - 15)/30)][Math.floor((player.x + 15)/30)] == 0) {
+                            clearWASD();
                             WASD[3] = true;
+                        }
                     }
                     else {
                         indexBoolean = true;
                         storeKeyCode = e.keyCode;
                     }
+                }
+            }
+
+            function clearWASD() {
+                for (var i = 0; i < WASD.length; i++) {
+                    WASD[i] = false;
                 }
             }
         </script>

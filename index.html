@@ -108,10 +108,8 @@
                     if (WASD[0]) {
                         console.log(Math.floor((this.x - 15)/30));
                         console.log(Math.floor((this.y - 15)/30));
-                        if (levelData[Math.floor((this.y- 10)/30)][Math.floor((this.x - 10)/30)] > 0) {
+                        if (levelData[Math.floor((this.y- 15 - speed)/30)][Math.floor((this.x - 15 - speed)/30)] > 0)
                             WASD[0] = false;
-                            //this.y += speed;
-                        }
                         else
                             this.y -= speed;
                     }

@@ -235,13 +235,13 @@
                             WASD[i] = false;
                         }
 
-                        if (storeKeyCode == 87) 
+                        if (storeKeyCode == 87 && levelData[Math.floor((this.y - 15 - speed)/30)][Math.floor((this.x - 15)/30)] > 0) 
                             WASD[0] = true;
-                        else if (storeKeyCode == 65)
+                        else if (storeKeyCode == 65 && levelData[Math.floor((this.y - 15)/30)][Math.floor((this.x - 15 - speed)/30)] > 0)
                             WASD[1] = true;
-                        else if (storeKeyCode == 83)
+                        else if (storeKeyCode == 83 && levelData[Math.floor((this.y + 15)/30)][Math.floor((this.x - 15)/30)] > 0)
                             WASD[2] = true;
-                        else if (storeKeyCode == 68)
+                        else if (storeKeyCode == 68 && levelData[Math.floor((this.y - 15)/30)][Math.floor((this.x + 15)/30)] > 0)
                             WASD[3] = true;
 
                         index = 0;

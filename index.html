@@ -45,7 +45,11 @@
             // Create a variable to hold our scoreLabel
             var scoreLabel;
 
-            var WASD = [false, false, false, false]
+            var WASD = [false, false, false, false];
+
+            var indexBoolean = false;
+            var index = 0;
+            var storeKeyCode = 0;
 
             function startGame() {
                 gameCanvas.start();
@@ -222,6 +226,29 @@
                 //player.makeFall();
                 player.draw();
                 player.move();
+
+                if (indexBoolean) {
+                    index += jump;
+
+                    if (index == 30) {
+                        for (var i = 0; i < WASD.length; i++) {
+                            WASD[i] = false;
+                        }
+
+                        if (storeKeyCode == 87) 
+                            WASD[0] = true;
+                        else if (storeKeyCode == 65)
+                            WASD[1] = true;
+                        else if (storeKeyCode == 83)
+                            WASD[2] = true;
+                        else if (storeKeyCode == 68)
+                            WASD[3] = true;
+
+                        index = 0;
+                        indexBoolean = false;
+                        storeKeyCode = 0;
+                    }
+                }
                // player.jump();
                 
                 //block.draw();
@@ -245,19 +272,27 @@
                 console.log(e.keyCode);
                 //console.log(player.x);
                 //console.log(player.y);
-                if ((e.keyCode == 87 || e.keyCode == 65 || e.keyCode == 83 || e.keyCode == 68) && player.x % 15 == 0 && player.x % 30 != 0 && player.y % 15 == 0 && player.y % 30 != 0) {
-                    for (var i = 0; i < WASD.length; i++) {
-                        WASD[i] = false;
-                    }
 
-                    if (e.keyCode == 87) 
-                        WASD[0] = true;
-                    else if (e.keyCode == 65)
-                        WASD[1] = true;
-                    else if (e.keyCode == 83)
-                        WASD[2] = true;
-                    else if (e.keyCode == 68)
-                        WASD[3] = true;
+
+                if ((e.keyCode == 87 || e.keyCode == 65 || e.keyCode == 83 || e.keyCode == 68)) {
+                    if (player.x % 15 == 0 && player.x % 30 != 0 && player.y % 15 == 0 && player.y % 30 != 0) {
+                        for (var i = 0; i < WASD.length; i++) {
+                            WASD[i] = false;
+                        }
+
+                        if (e.keyCode == 87) 
+                            WASD[0] = true;
+                        else if (e.keyCode == 65)
+                            WASD[1] = true;
+                        else if (e.keyCode == 83)
+                            WASD[2] = true;
+                        else if (e.keyCode == 68)
+                            WASD[3] = true;
+                    }
+                    else {
+                        indexBoolean = true;
+                        storeKeyCode = e.keyCode;
+                    }
                 }
             }
         </script>

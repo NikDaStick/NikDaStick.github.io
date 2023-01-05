@@ -230,7 +230,7 @@
                 if (indexBoolean) {
                     index += speed;
 
-                    if (index == 30) {
+                    if (player.x % 15 == 0 && player.x % 30 != 0 && player.y % 15 == 0 && player.y % 30 != 0) {
                         for (var i = 0; i < WASD.length; i++) {
                             WASD[i] = false;
                         }
@@ -289,7 +289,7 @@
                         else if (e.keyCode == 68)
                             WASD[3] = true;
                     }
-                    else if (player.x % 30 != 0 && player.y % 30 != 0) {
+                    else {
                         indexBoolean = true;
                         storeKeyCode = e.keyCode;
                     }

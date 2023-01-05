@@ -243,6 +243,8 @@
 
             document.body.onkeydown = function(e) {
                 console.log(e.keyCode);
+                console.log(player.x);
+                console.log(player.y);
                 if ((e.keyCode == 87 || e.keyCode == 65 || e.keyCode == 83 || e.keyCode == 68) && (player.x - 15 % 30) == 0 && (player.y - 15) % 30 == 0) {
                     for (var i = 0; i < WASD.length; i++) {
                         WASD[i] = false;
